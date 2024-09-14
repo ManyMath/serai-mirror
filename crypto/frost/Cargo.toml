@@ -1,7 +1,7 @@
 [package]
-name = "modular-frost"
+name = "modular-frost-mirror"
 version = "0.8.1"
-description = "Modular implementation of FROST over ff/group"
+description = "Modular implementation of FROST over ff/group.  Mirrored by sneurlax from serai for downstream crate-publishing purposes until serai publishes their crates; use the versions from serai in production.  This crate will be unpublished/deleted as soon as possible."
 license = "MIT"
 repository = "https://github.com/serai-dex/serai/tree/develop/crypto/frost"
 authors = ["Luke Parker <lukeparker5132@gmail.com>"]
@@ -28,24 +28,24 @@ subtle = { version = "^2.4", default-features = false, features = ["std"] }
 hex = { version = "0.4", default-features = false, features = ["std"], optional = true }
 
 digest = { version = "0.10", default-features = false, features = ["std"] }
-transcript = { package = "flexible-transcript", path = "../transcript", version = "^0.3.2", default-features = false, features = ["std", "recommended"] }
+transcript = { package = "flexible-transcript-mirror", path = "../transcript", version = "^0.3.2", default-features = false, features = ["std", "recommended"] }
 
-dalek-ff-group = { path = "../dalek-ff-group", version = "0.4", default-features = false, features = ["std"], optional = true }
-minimal-ed448 = { path = "../ed448", version = "0.4", default-features = false, features = ["std"], optional = true }
+dalek-ff-group = { package="dalek-ff-group-mirror", path = "../dalek-ff-group", version = "0.4", default-features = false, features = ["std"], optional = true }
+minimal-ed448 = { package="ed448-mirror", path = "../ed448", version = "0.4", default-features = false, features = ["std"], optional = true }
 
-ciphersuite = { path = "../ciphersuite", version = "^0.4.1", default-features = false, features = ["std"] }
+ciphersuite = { package="ciphersuite-mirror", path = "../ciphersuite", version = "^0.4.1", default-features = false, features = ["std"] }
 
-multiexp = { path = "../multiexp", version = "0.4", default-features = false, features = ["std", "batch"] }
+multiexp = { package="multiexp-mirror", path = "../multiexp", version = "0.4", default-features = false, features = ["std", "batch"] }
 
-schnorr = { package = "schnorr-signatures", path = "../schnorr", version = "^0.5.1", default-features = false, features = ["std"] }
+schnorr = { package="schnorr-mirror", package = "schnorr-signatures", path = "../schnorr", version = "^0.5.1", default-features = false, features = ["std"] }
 
-dkg = { path = "../dkg", version = "^0.5.1", default-features = false, features = ["std"] }
+dkg = { package="dkg-mirror", path = "../dkg", version = "^0.5.1", default-features = false, features = ["std"] }
 
 [dev-dependencies]
 hex = "0.4"
 serde_json = { version = "1", default-features = false, features = ["std"] }
 
-dkg = { path = "../dkg", features = ["tests"] }
+dkg = { package="dkg-mirror", path = "../dkg", features = ["tests"] }
 
 [features]
 ed25519 = ["dalek-ff-group", "ciphersuite/ed25519"]

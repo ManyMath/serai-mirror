@@ -1,7 +1,7 @@
 [package]
-name = "dkg"
+name = "dkg-mirror"
 version = "0.5.1"
-description = "Distributed key generation over ff/group"
+description = "Distributed key generation over ff/group.  Mirrored by sneurlax from serai for downstream crate-publishing purposes until serai publishes their crates; use the versions from serai in production.  This crate will be unpublished/deleted as soon as possible."
 license = "MIT"
 repository = "https://github.com/serai-dex/serai/tree/develop/crypto/dkg"
 authors = ["Luke Parker <lukeparker5132@gmail.com>"]
@@ -23,22 +23,22 @@ rand_core = { version = "0.6", default-features = false }
 
 zeroize = { version = "^1.5", default-features = false, features = ["zeroize_derive"] }
 
-std-shims = { version = "0.1", path = "../../common/std-shims", default-features = false }
+std-shims = { version = "0.1", path = "../../common/std-shims", package = "std-shims-mirror", default-features = false }
 
 borsh = { version = "1", default-features = false, features = ["derive", "de_strict_order"], optional = true }
 
-transcript = { package = "flexible-transcript", path = "../transcript", version = "^0.3.2", default-features = false, features = ["recommended"] }
+transcript = { package = "flexible-transcript-mirror", path = "../transcript", version = "^0.3.2", default-features = false, features = ["recommended"] }
 chacha20 = { version = "0.9", default-features = false, features = ["zeroize"] }
 
-ciphersuite = { path = "../ciphersuite", version = "^0.4.1", default-features = false }
-multiexp = { path = "../multiexp", version = "0.4", default-features = false }
+ciphersuite = { package = "ciphersuite-mirror", path = "../ciphersuite", version = "^0.4.1", default-features = false }
+multiexp = { package = "multiexp-mirror", path = "../multiexp", version = "0.4", default-features = false }
 
-schnorr = { package = "schnorr-signatures", path = "../schnorr", version = "^0.5.1", default-features = false }
-dleq = { path = "../dleq", version = "^0.4.1", default-features = false }
+schnorr = { package = "schnorr-signatures-mirror", path = "../schnorr", version = "^0.5.1", default-features = false }
+dleq = { package = "dleq-signatures", path = "../dleq", version = "^0.4.1", default-features = false }
 
 [dev-dependencies]
 rand_core = { version = "0.6", default-features = false, features = ["getrandom"] }
-ciphersuite = { path = "../ciphersuite", default-features = false, features = ["ristretto"] }
+ciphersuite = { package = "ciphersuite-mirror", path = "../ciphersuite", default-features = false, features = ["ristretto"] }
 
 [features]
 std = [

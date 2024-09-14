@@ -1,7 +1,7 @@
 [package]
-name = "ciphersuite"
+name = "ciphersuite-mirror"
 version = "0.4.1"
-description = "Ciphersuites built around ff/group"
+description = "Ciphersuites built around ff/group.  Mirrored by sneurlax from serai for downstream crate-publishing purposes until serai publishes their crates; use the versions from serai in production.  This crate will be unpublished/deleted as soon as possible."
 license = "MIT"
 repository = "https://github.com/serai-dex/serai/tree/develop/crypto/ciphersuite"
 authors = ["Luke Parker <lukeparker5132@gmail.com>"]
@@ -17,7 +17,7 @@ rustdoc-args = ["--cfg", "docsrs"]
 workspace = true
 
 [dependencies]
-std-shims = { path = "../../common/std-shims", version = "^0.1.1", default-features = false, optional = true }
+std-shims = { path = "../../common/std-shims", package = "std-shims-mirror", version = "^0.1.1", default-features = false, optional = true }
 
 rand_core = { version = "0.6", default-features = false }
 
@@ -32,20 +32,20 @@ sha3 = { version = "0.10", default-features = false, optional = true }
 ff = { version = "0.13", default-features = false, features = ["bits"] }
 group = { version = "0.13", default-features = false }
 
-dalek-ff-group = { path = "../dalek-ff-group", version = "0.4", default-features = false, optional = true }
+dalek-ff-group = { path = "../dalek-ff-group", package = "dalek-ff-group-mirror", version = "0.4", default-features = false, optional = true }
 
 elliptic-curve = { version = "0.13", default-features = false, features = ["hash2curve"], optional = true }
 p256 = { version = "^0.13.1", default-features = false, features = ["arithmetic", "bits", "hash2curve"], optional = true }
 k256 = { version = "^0.13.1", default-features = false, features = ["arithmetic", "bits", "hash2curve"], optional = true }
 
-minimal-ed448 = { path = "../ed448", version = "0.4", default-features = false, optional = true }
+minimal-ed448 = { path = "../ed448", package = "minimal-ed448-mirror", version = "0.4", default-features = false, optional = true }
 
 [dev-dependencies]
 hex = { version = "0.4", default-features = false, features = ["std"] }
 
 rand_core = { version = "0.6", default-features = false, features = ["std"] }
 
-ff-group-tests = { version = "0.13", path = "../ff-group-tests" }
+ff-group-tests-mirror = { version = "0.13", path = "../ff-group-tests" }
 
 [features]
 alloc = ["std-shims"]
@@ -80,6 +80,6 @@ kp256 = ["sha2", "elliptic-curve"]
 p256 = ["kp256", "dep:p256"]
 secp256k1 = ["kp256", "k256"]
 
-ed448 = ["sha3", "minimal-ed448"]
+ed448 = ["sha3", "minimal-ed448-mirror"]
 
 default = ["std"]

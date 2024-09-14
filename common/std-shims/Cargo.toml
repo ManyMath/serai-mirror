@@ -1,7 +1,7 @@
 [package]
-name = "std-shims"
+name = "std-shims-mirror"
 version = "0.1.1"
-description = "A series of std shims to make alloc more feasible"
+description = "A series of std shims to make alloc more feasible.  Mirrored by sneurlax from serai for downstream crate-publishing purposes until serai publishes their crates; use the versions from serai in production.  This crate will be unpublished/deleted as soon as possible."
 license = "MIT"
 repository = "https://github.com/serai-dex/serai/tree/develop/common/std-shims"
 authors = ["Luke Parker <lukeparker5132@gmail.com>"]

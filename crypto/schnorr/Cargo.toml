@@ -1,7 +1,7 @@
 [package]
-name = "schnorr-signatures"
+name = "schnorr-signatures-mirror"
 version = "0.5.1"
-description = "Minimal Schnorr signatures crate hosting common code"
+description = "Minimal Schnorr signatures crate hosting common code.  Mirrored by sneurlax from serai for downstream crate-publishing purposes until serai publishes their crates; use the versions from serai in production.  This crate will be unpublished/deleted as soon as possible."
 license = "MIT"
 repository = "https://github.com/serai-dex/serai/tree/develop/crypto/schnorr"
 authors = ["Luke Parker <lukeparker5132@gmail.com>"]
@@ -17,7 +17,7 @@ rustdoc-args = ["--cfg", "docsrs"]
 workspace = true
 
 [dependencies]
-std-shims = { path = "../../common/std-shims", version = "^0.1.1", default-features = false }
+std-shims = { package = "std-shims-mirror", path = "../../common/std-shims", version = "^0.1.1", default-features = false }
 
 rand_core = { version = "0.6", default-features = false }
 
@@ -25,8 +25,8 @@ zeroize = { version = "^1.5", default-features = false, features = ["zeroize_der
 
 transcript = { package = "flexible-transcript", path = "../transcript", version = "^0.3.2", default-features = false }
 
-ciphersuite = { path = "../ciphersuite", version = "^0.4.1", default-features = false, features = ["alloc"] }
-multiexp = { path = "../multiexp", version = "0.4", default-features = false, features = ["batch"] }
+ciphersuite = { package = "ciphersuite-mirror", path = "../ciphersuite", version = "^0.4.1", default-features = false, features = ["alloc"] }
+multiexp = { package = "multiexp-mirror", path = "../multiexp", version = "0.4", default-features = false, features = ["batch"] }
 
 [dev-dependencies]
 hex = "0.4"
@@ -35,8 +35,8 @@ rand_core = { version = "0.6", features = ["std"] }
 
 sha2 = "0.10"
 
-dalek-ff-group = { path =  "../dalek-ff-group" }
-ciphersuite = { path = "../ciphersuite", features = ["ed25519"] }
+dalek-ff-group = { package = "dalek-ff-group-mirror", path =  "../dalek-ff-group" }
+ciphersuite = { package = "ciphersuite-mirror", path = "../ciphersuite", features = ["ed25519"] }
 
 [features]
 std = ["std-shims/std", "rand_core/std", "zeroize/std", "transcript/std", "ciphersuite/std", "multiexp/std"]

@@ -1,7 +1,7 @@
 [package]
-name = "minimal-ed448"
+name = "minimal-ed448-mirror"
 version = "0.4.0"
-description = "Unaudited, inefficient implementation of Ed448 in Rust"
+description = "Unaudited, inefficient implementation of Ed448 in Rust.  Mirrored by sneurlax from serai for downstream crate-publishing purposes until serai publishes their crates; use the versions from serai in production.  This crate will be unpublished/deleted as soon as possible."
 license = "MIT"
 repository = "https://github.com/serai-dex/serai/tree/develop/crypto/ed448"
 authors = ["Luke Parker <lukeparker5132@gmail.com>"]
@@ -35,7 +35,7 @@ hex = { version = "0.4", default-features = false, features = ["std"] }
 
 rand_core = { version = "0.6", default-features = false, features = ["std"] }
 
-ff-group-tests = { path = "../ff-group-tests" }
+ff-group-tests-mirror = { path = "../ff-group-tests", version = "0.13.0" }
 
 [features]
 std = ["rand_core/std", "zeroize/std", "subtle/std", "ff/std"]
