@@ -32,7 +32,7 @@ rand_core = { version = "0.6", default-features = false, optional = true }
 rand_core = { version = "0.6", features = ["std"] }
 
 k256 = { version = "^0.13.1", default-features = false, features = ["arithmetic", "bits"] }
-dalek-ff-group-mirror = { path = "../dalek-ff-group", version = "0.3.0" }
+dalek-ff-group = { package = "dalek-ff-group-mirror", path = "../dalek-ff-group", version = "0.3.0" }
 
 [features]
 std = ["std-shims/std", "zeroize/std", "ff/std", "rand_core?/std"]

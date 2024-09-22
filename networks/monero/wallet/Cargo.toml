@@ -1,7 +1,7 @@
 [package]
-name = "monero-wallet"
+name = "monero-wallet-mirror"
 version = "0.1.0"
-description = "Wallet functionality for the Monero protocol, built around monero-serai"
+description = "Wallet functionality for the Monero protocol, built around monero-serai.  Mirrored by sneurlax from serai for downstream crate-publishing purposes until serai publishes their crates; use the versions from serai in production.  This crate will be unpublished/deleted as soon as possible."
 license = "MIT"
 repository = "https://github.com/serai-dex/serai/tree/develop/networks/monero/wallet"
 authors = ["Luke Parker <lukeparker5132@gmail.com>"]
@@ -20,7 +20,7 @@ ignored = ["monero-clsag"]
 workspace = true
 
 [dependencies]
-std-shims = { path = "../../../common/std-shims", version = "^0.1.1", default-features = false }
+std-shims = { path = "../../../common/std-shims", package = "std-shims-mirror", version = "^0.1.1", default-features = false }
 
 thiserror = { version = "1", default-features = false, optional = true }
 
@@ -36,27 +36,27 @@ rand_distr = { version = "0.4", default-features = false }
 curve25519-dalek = { version = "4", default-features = false, features = ["alloc", "zeroize", "group"] }
 
 # Multisig dependencies
-transcript = { package = "flexible-transcript", path = "../../../crypto/transcript", version = "0.3", default-features = false, features = ["recommended"], optional = true }
+transcript = { path = "../../../crypto/transcript", package = "flexible-transcript-mirror", version = "0.3", default-features = false, features = ["recommended"], optional = true }
 group = { version = "0.13", default-features = false, optional = true }
-dalek-ff-group = { path = "../../../crypto/dalek-ff-group", version = "0.4", default-features = false, optional = true }
-frost = { package = "modular-frost", path = "../../../crypto/frost", default-features = false, features = ["ed25519"], optional = true }
+dalek-ff-group = { path = "../../../crypto/dalek-ff-group", package = "dalek-ff-group-mirror", version = "0.4", default-features = false, optional = true }
+frost = { path = "../../../crypto/frost", package = "modular-frost-mirror", version = "0.8.1", default-features = false, features = ["ed25519"], optional = true }
 
 hex = { version = "0.4", default-features = false, features = ["alloc"] }
 
-monero-clsag = { path = "../ringct/clsag", default-features = false }
-monero-serai = { path = "..", default-features = false }
-monero-rpc = { path = "../rpc", default-features = false }
-monero-address = { path = "./address", default-features = false }
+monero-clsag = { path = "../ringct/clsag", package = "monero-clsag-mirror", version = "0.1.0", default-features = false }
+monero-serai = { path = "..", package = "monero-serai-mirror", version = "0.1.5-alpha", default-features = false }
+monero-rpc = { path = "../rpc", package = "monero-rpc-mirror", version = "0.1.0", default-features = false }
+monero-address = { path = "./address", package = "monero-address-mirror", version = "0.1.0", default-features = false }
 
 [dev-dependencies]
 serde = { version = "1", default-features = false, features = ["derive", "alloc", "std"] }
 serde_json = { version = "1", default-features = false, features = ["alloc", "std"] }
 
-frost = { package = "modular-frost", path = "../../../crypto/frost", default-features = false, features = ["ed25519", "tests"] }
+frost = { path = "../../../crypto/frost", package = "modular-frost-mirror", default-features = false, features = ["ed25519", "tests"] }
 
 tokio = { version = "1", features = ["sync", "macros"] }
 
-monero-simple-request-rpc = { path = "../rpc/simple-request", default-features = false }
+monero-simple-request-rpc = { path = "../rpc/simple-request", package = "monero-simple-request-rpc-mirror", version = "0.1.0", default-features = false }
 
 [features]
 std = [

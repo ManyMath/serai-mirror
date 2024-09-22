@@ -35,7 +35,7 @@ curve25519-dalek = { version = ">= 4.0, < 4.2", default-features = false, featur
 
 [dev-dependencies]
 rand_core = { version = "0.6", default-features = false, features = ["std"] }
-ff-group-tests-mirror = { path = "../ff-group-tests", version = "0.13.0" }
+ff-group-tests = { package = "ff-group-tests-mirror", path = "../ff-group-tests", version = "0.13.0" }
 
 [features]
 std = ["zeroize/std", "subtle/std", "rand_core/std", "digest/std"]

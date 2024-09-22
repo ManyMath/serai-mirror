@@ -25,7 +25,7 @@ zeroize = { version = "^1.5", default-features = false, features = ["derive"] }
 subtle = { version = "^2.4", default-features = false }
 
 digest = { version = "0.10", default-features = false }
-transcript = { package = "flexible-transcript", path = "../transcript", version = "^0.3.2", default-features = false }
+transcript = { path = "../transcript", package = "flexible-transcript-mirror", version = "^0.3.2", default-features = false }
 sha2 = { version = "0.10", default-features = false, optional = true }
 sha3 = { version = "0.10", default-features = false, optional = true }
 
@@ -45,7 +45,7 @@ hex = { version = "0.4", default-features = false, features = ["std"] }
 
 rand_core = { version = "0.6", default-features = false, features = ["std"] }
 
-ff-group-tests-mirror = { version = "0.13", path = "../ff-group-tests" }
+ff-group-tests = { package = "ff-group-tests-mirror", version = "0.13", path = "../ff-group-tests" }
 
 [features]
 alloc = ["std-shims"]
@@ -80,6 +80,6 @@ kp256 = ["sha2", "elliptic-curve"]
 p256 = ["kp256", "dep:p256"]
 secp256k1 = ["kp256", "k256"]
 
-ed448 = ["sha3", "minimal-ed448-mirror"]
+ed448 = ["sha3", "minimal-ed448"]
 
 default = ["std"]

@@ -34,7 +34,7 @@ ciphersuite = { package = "ciphersuite-mirror", path = "../ciphersuite", version
 multiexp = { package = "multiexp-mirror", path = "../multiexp", version = "0.4", default-features = false }
 
 schnorr = { package = "schnorr-signatures-mirror", path = "../schnorr", version = "^0.5.1", default-features = false }
-dleq = { package = "dleq-signatures", path = "../dleq", version = "^0.4.1", default-features = false }
+dleq = { package = "dleq-mirror", path = "../dleq", version = "^0.4.1", default-features = false }
 
 [dev-dependencies]
 rand_core = { version = "0.6", default-features = false, features = ["getrandom"] }
