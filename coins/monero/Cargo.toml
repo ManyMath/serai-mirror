@@ -49,7 +49,7 @@ base58-monero = "1"
 monero-epee-bin-serde = "1"
 
 digest_auth = "0.3"
-reqwest = { version = "0.11", features = ["json"] }
+reqwest = { version = "0.11", default-features = false, features = ["json", "rustls-tls"] }
 
 [build-dependencies]
 dalek-ff-group = { package = "dalek-ff-group-mirror", path = "../../crypto/dalek-ff-group", version = "0.3" }
